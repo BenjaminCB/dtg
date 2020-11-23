@@ -1,0 +1,21 @@
+\section{Workshop 4 - Betingelser}
+I denne workshop kigger vi på nogle betingelser for at et if-statement eksekveres. Koden, og det if-statement, der gerne skulle være opfyldt, kan ses i den tilhørende kode. Vi forestiller os en person, som leder efter et stort positivt heltal $x$, der opfylder nogle betingelser. For at beskrive hvilke betingelser det skal opfylde, definerer vi følgende udsagnsfunktioner:
+\begin{align*}
+	P(x)&: x \text{ er et primtal}\\
+	Q(x)&: \gcd(x,2)=1\\
+	R(x)&: 9^x-2\bmod{5} = 2
+\end{align*}
+Vedkommende leder efter et $x$ som gør følgende udsagn sand:
+\begin{align}\label{eq:Betingelse}
+	(P(x)\wedge \neg R(x)) \vee \neg(P(x)\vee \neg Q(x) \vee R(x)) \vee (\neg P(x) \wedge \neg Q(x) \wedge R(x)).
+\end{align}
+Indtil videre er det kun lykkedes vedkommende at finde tallet $2$. I dette tilfælde gælder det, at $P(2)$ er sand, da $2$ er et primtal, $Q(2)$ er falsk, da $\gcd(2,2)=2\neq 1$ og $R(2)$ er falsk, da $9^2-2 \bmod 5=79 \bmod 5=4$. Derfor får vi, at
+\begin{align*}
+	&(P(2)\wedge \neg R(2)) \vee \neg(P(2)\vee \neg Q(2) \vee R(2)) \vee (\neg P(2) \wedge \neg Q(2) \wedge R(2))\\
+	\equiv& (\mathbb{T}\wedge \neg \mathbb{F}) \vee \neg(\mathbb{T}\vee \neg \mathbb{F} \vee \mathbb{F}) \vee (\neg \mathbb{T} \wedge \neg \mathbb{F} \wedge \mathbb{F})\\
+	\equiv& (\mathbb{T}\wedge \mathbb{T}) \vee \neg(\mathbb{T}\vee  \mathbb{T} \vee \mathbb{F}) \vee (\mathbb{F} \wedge  \mathbb{T} \wedge \mathbb{F})\\
+	\equiv& \mathbb{T} \vee \neg\mathbb{T} \vee \mathbb{F} \\
+	\equiv& \mathbb{T}.
+\end{align*}
+Problemet er dog, at vedkommende gerne vil have et meget større $x$. Han håber han kan finde mindst $3$ tal $\{x,y,z\}$, hvor $100000<x,y,z\leq 1000000$ som alle opfylder betingelsen.
+Vi prøver at arbejde med udtrykket for at finde ud af hvilke $x$, der overholder betingelsen.
