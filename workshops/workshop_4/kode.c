@@ -5,29 +5,30 @@
 int isPrime(int x);
 int isGcd1(int x);
 int is2mod5(int x);
+int modulo_pow(int base, int exponent, int modulo);
 void swap(int* a, int* b);
 int gcd(int a, int b);
 
 int main(void){
-  int x;
-  int p, q, r;
+    int x;
+    int p, q, r;
 
-  printf("Hvilket heltal vil du tjekke?\n");
-  scanf("%d", &x);
-  printf("x er %d\n", x);
+    /*printf("Hvilket heltal vil du tjekke?\n");
+    scanf("%d", &x);
+    printf("x er %d\n", x);*/
 
-  p = isPrime(x);
-  q = isGcd1(x);
-  r = is2mod5(x);
+    for (x = 100000; x <= 1000000; x++) {
+        p = isPrime(x);
+        q = isGcd1(x);
+        r = is2mod5(x);
 
-  if ((p && !r) || !(p || !q || r) || (!p && !q && r)){
-    printf("Du fandt et x\n");
-    printf("p er %d, q er %d, and r er %d\n", p,q,r);
-  } else {
-    printf("Proev igen\n");
-  }
+        if ((p && !r) || !(p || !q || r) || (!p && !q && r)){
+            printf("Du fandt et x\n");
+            printf("p er %d, q er %d, and r er %d og x er %d\n", p,q,r,x);
+        }
+    }
 
-  return 0;
+    return 0;
 }
 
 /* Denne funktion skal returnere 1 hvis x er et primtal og 0 ellers */
@@ -47,7 +48,7 @@ int isPrime(int x){
 
 /* Denne funktion skal returnere 1 hvis gcd(x,2)=1 og 0 ellers */
 int isGcd1(int x){
-    return gcd(x, 2);
+    return gcd(x, 2) == 1 ? 1 : 0;
 }
 
 /* swap the values of a and b with pointers */
@@ -63,14 +64,14 @@ int gcd(int a, int b) {
 
     /* if a is bigger than b then swap their values */
     if (a > b) {
-	swap(&a, &b);
+        swap(&a, &b);
     }
 
     /* run the algorithm to find gcd */
     while (a > 0){
-	remainder = b % a;
-	b = a;
-	a = remainder;
+        remainder = b % a;
+        b = a;
+        a = remainder;
     }
     
     /* return gcd */
@@ -79,7 +80,16 @@ int gcd(int a, int b) {
 
 /* Denne funktion skal returnere 1 hvis 9^x-2 mod 5 = 2 og 0 ellers */ 
 int is2mod5(int x){
-    int res = 0;
-    if ((int) (pow(9, x) - 2) % 5 == 2) res = 2;
-    return res;
+    return (modulo_pow(9, x, 5) == 4) ? 1 : 0; 
+}
+
+int modulo_pow(int base, int exponent, int modulo) {
+    if (modulo == 1) return 0;
+    int c = 1;
+    int e_prime = 0;
+    for (;;) {
+        e_prime++;
+        c = (base * c) % modulo;
+        if (e_prime >= exponent) return c;
+    }
 }
