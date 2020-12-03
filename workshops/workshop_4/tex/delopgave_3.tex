@@ -8,7 +8,7 @@ Umiddelbart er vi ikke kommet nærmere hvilke $x$, der opfylder \eqref{eq:Beting
 
 \bigskip
 \noindent
-\textbf{Solution}
+\textbf{Solution:} We assume that $x=2n$ and that $gcd(x,2)=1$. If the previous two are true it means that 2 does not divide x. However, x is even meaning that we can write is $2n$ clearly seing that it is divisible by 2. We now have a contradiction, thus if $gcd(x,2)=1$ x has to be odd.
 
 \subsection{Subtask 2}
 \noindent
@@ -22,7 +22,43 @@ Umiddelbart er vi ikke kommet nærmere hvilke $x$, der opfylder \eqref{eq:Beting
 
 \bigskip
 \noindent
-\textbf{Solution}
+\textbf{Solution:} This means that if Q(x) is true x is odd on if Q(x) is false x is even. If we say that $9^2=n$ we get that $n mod 5 = 4$ for Q(x) be true. Now i just have to show that $9^x = 5m+4$ when x is odd and that it doesn't when it's even. I start with the base cases of $x=1$ and $x=2$.
+
+\begin{equation}
+    \begin{aligned}
+        9=5+4=5 \cdot m+4 \\
+        9^2=81=16 \cdot 5+1=5 \cdot m+1
+    \end{aligned}
+\end{equation}
+
+Now for the subsequent cases we show that result does not change when we add 2 to the value of x.
+
+\begin{equation}
+    \begin{aligned}
+        9^{x+2} \\
+        9^x \cdot 9^2
+    \end{aligned}
+\end{equation} 
+
+Now we have that $9^x$ x can either be odd or even if odd we assume that we get $5m+4$ and if even we assume $5m+1$ we know that $9^2=5m+1$ so let's see if the results change.
+
+\begin{equation}
+    \begin{aligned}
+        (5m + 4) \cdot (5m + 1) \\ 
+        (5m)^2 + 5m + 5 \cdot 4m + 4 \\
+        5 \cdot (5m^2 + m + 4m) + 4
+    \end{aligned}
+\end{equation} 
+
+\begin{equation}
+    \begin{aligned}
+        (5m + 1) \cdot (5m + 1) \\ 
+        (5m)^2 + 5m + 5m + 1 \\
+        5 \cdot (5m^2 + 2m) + 1
+    \end{aligned}
+\end{equation} 
+
+This are the desired results thus Q(x) have been shown to be equivelant to R(x)
 
 \subsection{Subtask 3}
 \noindent

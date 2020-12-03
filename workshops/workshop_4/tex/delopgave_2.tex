@@ -5,7 +5,39 @@
 
 \bigskip
 \noindent
-\textbf{Solution}
+\textbf{Solution:} 
+
+\begin{equation}
+	(P(x)\wedge \neg R(x)) \vee \neg(P(x)\vee \neg Q(x) \vee R(x)) \vee (\neg P(x) \wedge \neg Q(x) \wedge R(x)).
+\end{equation}
+Start of by making a truth table 
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|}
+P & R & Q & $P\wedge \neg R$ & $P\vee \neg Q \vee R$ & $\neg P \wedge \neg Q \wedge R$ & whole thing \\ \hline
+1    & 1    & 1    & 0           & 1               & 0                     & 0               \\ \hline
+1    & 1    & 0    & 0           & 1               & 0                     & 0               \\ \hline
+1    & 0    & 1    & 1           & 1               & 0                     & 1               \\ \hline
+1    & 0    & 0    & 1           & 1               & 0                     & 1               \\ \hline
+0    & 1    & 1    & 0           & 1               & 0                     & 0               \\ \hline
+0    & 1    & 0    & 0           & 1               & 1                     & 1               \\ \hline
+0    & 0    & 1    & 0           & 0               & 0                     & 1               \\ \hline
+0    & 0    & 0    & 0           & 1               & 0                     & 0               \\ \hline
+\end{tabular}
+\end{table}
+
+We need to have four minterms and combine them to get the corroct the result. The following should do nicely.
+
+\begin{equation} 
+    \begin{aligned}
+        P \wedge R \wedge \neg Q \\
+        P \wedge \neg R \wedge \neg Q \\
+        \neg P \wedge R \wedge \neg Q \\
+        \neg P \wedge \neg R \wedge Q
+    \end{aligned}
+\end{equation}
+
+adding these together we get the desired result.
 
 \subsection{Subtask 2}
 \noindent
