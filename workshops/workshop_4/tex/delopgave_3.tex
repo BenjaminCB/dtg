@@ -1,4 +1,8 @@
-Umiddelbart er vi ikke kommet nærmere hvilke $x$, der opfylder \eqref{eq:Betingelse}. Vi kan dog vise, at $Q(x)$ og $R(x)$ egentlig er betingelser, der minder meget om hinanden.
+Umiddelbart er vi ikke kommet nærmere hvilke $x$, der opfylder \eqref{eq:Betingelse}. Vi kan dog se at vi har nogle modstrider. For i nogle af vores min terms vil have at tallet vi leder efter skal vaere baade et primtal og have at $gcd(x,2)$ er forskelig fra et dvs sige at den skal vaere 2. Tallet skal derfor baade vaere et primtal og et lige tal. Dette er noget der kun gaelder for 2. Man kan altsaa reducere til foelgende. 
+
+\begin{equation}
+    (\neg P \wedge R \wedge \neg Q)\vee(\neg P \wedge \neg R \wedge Q)
+\end{equation}
 
 
 \section{Task 3}
@@ -22,7 +26,7 @@ Umiddelbart er vi ikke kommet nærmere hvilke $x$, der opfylder \eqref{eq:Beting
 
 \bigskip
 \noindent
-\textbf{Solution:} This means that if Q(x) is true x is odd on if Q(x) is false x is even. If we say that $9^2=n$ we get that $n mod 5 = 4$ for Q(x) be true. Now i just have to show that $9^x = 5m+4$ when x is odd and that it doesn't when it's even. I start with the base cases of $x=1$ and $x=2$.
+\textbf{Solution:} This means that if Q(x) is true x is odd on if Q(x) is false x is even. If we say that $9^1=n$ we get that $n mod 5 = 4$ for Q(x) be true. Now i just have to show that $9^x = 5m+4$ when x is odd and that it doesn't when it's even. I start with the base cases of $x=1$ and $x=2$.
 
 \begin{equation}
     \begin{aligned}
